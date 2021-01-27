@@ -19,6 +19,16 @@ public class Animal
     {
         this.name = name;
     }
+	
+	public int getnumber()
+    {
+        return numLives;
+    }
+
+    public void setnumber(int numLives)
+    {
+        this.numLives = numLives;
+    }
 
     public Animal(String name)
     {

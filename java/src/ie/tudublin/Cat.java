@@ -7,5 +7,6 @@ public class Cat extends Animal
 		//private int numLives = 9;
 		
         super(name);
-    }
+    
+	}
 }

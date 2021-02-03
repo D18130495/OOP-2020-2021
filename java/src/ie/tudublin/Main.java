@@ -1,6 +1,5 @@
 package ie.tudublin;
 
-
 public class Main
 {
     public void bugZap()
@@ -13,4 +12,4 @@ public class Main
         Main main = new Main();
         main.bugZap();
     }
-}
+} 

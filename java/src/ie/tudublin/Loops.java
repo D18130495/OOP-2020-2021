@@ -4,6 +4,9 @@ import processing.core.PApplet;
 
 public class Loops extends PApplet {
 
+    float cx;
+    float cy;
+
     public void settings() {
         size(500, 500);
         cx = width / 2;
@@ -11,9 +14,6 @@ public class Loops extends PApplet {
     }
 
     int mode = 0;
-
-    float cx;
-    float cy;
 
     public void keyPressed() {
         // the value of mode will be the number of the 
@@ -104,8 +104,8 @@ public class Loops extends PApplet {
                     float y = cos(angle) * radius;
                     line(cx, cy, cx + x, cy + y);                    
                 }
+                break;
             }
-            break;
             case 5:
             {
                 rectMode(CORNER);

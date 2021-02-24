@@ -13,6 +13,7 @@ public class Main
         processing.core.PApplet.runSketch( a, new Loops());
     }
 
+    
     public void life()
     {
         String[] a = {"MAIN"};

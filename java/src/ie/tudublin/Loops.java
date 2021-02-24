@@ -50,6 +50,7 @@ public class Loops extends PApplet {
                 break;
             }                
             case 1:
+            {
                 fill(50, 255, 255);                                    
                 if (mouseX < cx && mouseY < cy)
                 {
@@ -68,6 +69,7 @@ public class Loops extends PApplet {
                     rect(cx, cy, cx, cy);
                 }
                 break;
+            }
             case 2:
             {
                 int numRects = (int)(mouseX / 10.0f);
@@ -131,8 +133,8 @@ public class Loops extends PApplet {
                     fill(i * cgap, 255, 255);
                     w = i * gap;
                     ellipse(cx, cy, w, w);
-                    
-                }                
+                }
+                break;             
             }
             case 7:
             {
@@ -144,7 +146,7 @@ public class Loops extends PApplet {
                 {
                     for(int j = 0 ; j < numCircles ; j ++)
                     {
-                        float c = ((cgap * (i + j)) + offset) % 255; 
+                        float c = ((cgap * (i + j)) + offset) % 255;
                         fill(c, 255, 255);
                         ellipse((w / 2) + w * j, (w / 2) + w * i, w, w);
                     }
@@ -153,7 +155,7 @@ public class Loops extends PApplet {
             }
             case 8:
             {
-                int sides = (mouseX / 50);
+                int sides = (mouseX / 40);
                 float theta = TWO_PI / (float) sides;
                 float radius = 200;
                 stroke(255);
@@ -165,8 +167,19 @@ public class Loops extends PApplet {
                     float y2 = cos(theta * i) * radius;
                     line(cx + x1, cy + y1, cx + x2, cy + y2);
                 }
+                break;
             }
-            break;
+//            case 9:
+//            {
+//                int numCircles = (int)(mouseX / 10.0f);
+//                float cgap = 255 / (float) numCircles;
+//                for(int i = 0 ; i < numCircles ; i ++)
+//                {
+//                    fill(cgap * i, 255, 255);
+//                    ellipse(width / 2, width / 2,  width - i * 10,  width - i * 10);
+//                }
+//                break;
+//            }
         }
     }
 }

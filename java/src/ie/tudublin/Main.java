@@ -2,12 +2,6 @@ package ie.tudublin;
 
 public class Main
 {
-    public void loops()
-    {
-        String[] a = {"MAIN"};
-        processing.core.PApplet.runSketch( a, new Loops());
-    }
-
     public void arrays()
     {
         String[] a = {"MAIN"};
@@ -18,9 +12,15 @@ public class Main
         String[] a = {"MAIN"};
         processing.core.PApplet.runSketch( a, new Life());
     }
+
+    public void loops()
+    {
+        String[] a = {"MAIN"};
+        processing.core.PApplet.runSketch( a, new Loops());
+    }
     public static void main(String[] args)
     {
         Main main = new Main();
-        main.life();
+        main.loops();
     }
 } 

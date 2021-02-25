@@ -37,11 +37,11 @@ public class Arrays extends PApplet {
     }
 
     public void settings() {
-        size(1000, 1000);
+        size(500, 500);
 
 
         // Testing the map function
-        float f = map1(2, 0, 10, 0, width);
+        float f = map1(2, 0, 10, 0, 500);
         println(f); // Should print 100
 
         f = map1(9, 0, 1, 0, 10);
@@ -60,13 +60,6 @@ public class Arrays extends PApplet {
     float[] rainfall = { 45, 37, 55, 27, 38, 50, 79, 48, 104, 31, 100, 58 };
     String[] months = { "Jan", "Feb", "March", "April", "May", "June", "July", "August", "Sept", "Oct", "Nov", "Dec" };
     float[] arr = new float[100]; // 100 float array
-
-    public void keyPressed() {
-        // the value of mode will be the number of the
-        // number key pressed
-        if (keyCode >= '0' && keyCode <= '9')
-            mode = keyCode - '0';
-    }
 
     public void setup() {
         colorMode(RGB);
@@ -120,6 +113,12 @@ public class Arrays extends PApplet {
         }
     }
 
+    public void keyPressed() {
+        // the value of mode will be the number of the
+        // number key pressed
+        if (keyCode >= '0' && keyCode <= '9')
+            mode = keyCode - '0';
+    }
 
     public void draw() {
         background(0);

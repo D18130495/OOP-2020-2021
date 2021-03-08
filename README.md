@@ -39,9 +39,42 @@ Resources
 - https://github.com/skooter500/OOP_Labtest1_2017_Starter
 - https://github.com/skooter500/OOP-LabTest1-2016
 
+# Week 7 - Audio
+- [Minim library reference](http://code.compartmental.net/minim/)
+
+Some audio responsive stuff I have been working on recently:
+
+[![YouTube](http://img.youtube.com/vi/4Fc_OW4M5AU/0.jpg)](https://www.youtube.com/watch?v=4Fc_OW4M5AU)
+
+[![YouTube](http://img.youtube.com/vi/xF7VrXZqLko/0.jpg)](https://www.youtube.com/watch?v=xF7VrXZqLko)
+
+[![YouTube](http://img.youtube.com/vi/KNymjRyr27A/0.jpg)](https://www.youtube.com/watch?v=KNymjRyr27A)
+
+# Week 6 - Star Map ArrayList, classes, CSV files
+
+##  Lab
+### Learning Outcomes
+- Make a class
+- Make constructors & accessor methods
+- Use an ArrayList
+- Develop problem solving & algorithm design skills
+
+Try this [lab test from last year](https://github.com/skooter500/OOP-LabTest-2020-Starter). You can use the StarMap example we made in the class on Monday for help.
+
+## Lecture
+- [Video of the class](https://web.microsoftstream.com/video/2c196702-f54f-47ad-abf0-be8455d20d02)
+
 # Week 5 - Conway's Game of Life
 
+## Tutorial
+- [Video of the tutorial](https://web.microsoftstream.com/video/7dbf1ef3-3857-4952-b840-f27b3a3187a4)
+- [Life with no colors](java/src/ie/tudublin/Life.java)
+- [The colorful Game of Life we made in the tutorial](java/src/ie/tudublin/ColorfulLife.java)
+
 ## Lab
+
+- [Video of the lab](https://web.microsoftstream.com/video/decb45c9-a4a6-45a9-bb25-0b299c1a3c29)
+
 ### Learning Outcomes
 - Learn how to iterate over a 2D array
 - Explore the magic of cellular automata

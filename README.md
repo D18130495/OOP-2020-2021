@@ -39,12 +39,188 @@ Resources
 - https://github.com/skooter500/OOP_Labtest1_2017_Starter
 - https://github.com/skooter500/OOP-LabTest1-2016
 
+# Week 7 - Audio
+- [Minim library reference](http://code.compartmental.net/minim/)
+
+Some audio responsive stuff I have been working on recently:
+
+[![YouTube](http://img.youtube.com/vi/4Fc_OW4M5AU/0.jpg)](https://www.youtube.com/watch?v=4Fc_OW4M5AU)
+
+[![YouTube](http://img.youtube.com/vi/xF7VrXZqLko/0.jpg)](https://www.youtube.com/watch?v=xF7VrXZqLko)
+
+[![YouTube](http://img.youtube.com/vi/KNymjRyr27A/0.jpg)](https://www.youtube.com/watch?v=KNymjRyr27A)
+
+# Week 6 - Star Map ArrayList, classes, CSV files
+
+##  Lab
+### Learning Outcomes
+- Make a class
+- Make constructors & accessor methods
+- Use an ArrayList
+- Develop problem solving & algorithm design skills
+
+Try this [lab test from last year](https://github.com/skooter500/OOP-LabTest-2020-Starter). You can use the StarMap example we made in the class on Monday for help.
+
+## Lecture
+- [Video of the class](https://web.microsoftstream.com/video/2c196702-f54f-47ad-abf0-be8455d20d02)
+
+# Week 5 - Conway's Game of Life
+
+## Tutorial
+- [Video of the tutorial](https://web.microsoftstream.com/video/7dbf1ef3-3857-4952-b840-f27b3a3187a4)
+- [Life with no colors](java/src/ie/tudublin/Life.java)
+- [The colorful Game of Life we made in the tutorial](java/src/ie/tudublin/ColorfulLife.java)
+
+## Lab
+
+- [Video of the lab](https://web.microsoftstream.com/video/decb45c9-a4a6-45a9-bb25-0b299c1a3c29)
+
+### Learning Outcomes
+- Learn how to iterate over a 2D array
+- Explore the magic of cellular automata
+- Learn how to use map
+
+Update your fork of the repo from the master branch to get the bug fixed code from Monday's class and create a branch for your work today. I discovered another bug in the code we wrote on Monday. In countNeighbours, the line:
+
+```Java
+if (r != row && c != col)                
+```
+
+Should have been:
+
+```Java
+if (! (r == row && c == col))                
+```
+
+In Life.java:
+
+Write the method ```updateBoard```. This method should iterate over the board cell by cell using a nested for loop and apply the Game of Life rules:
+
+1. If the cell is alive (true) then if the cell has exactly 2 or 3 neighbours it survives (gets set to true), otherwise it dies (gets set to false)
+2. If the cell is dead (false) then it comes to life if it has exactly 3 neighbours, otherwise it stays dead in the next generation.
+
+This is important so please read carefully!!
+
+You have to read values from *board*, but you set values in *next*, which is a 2D array the same size as board. At the end of the method you *swap* board and next. I have left the swapping code in the method, so you don't have to write it. This is so that when you for example, kill a cell or bring a cell to life, you don't screw up the count for other cells in that generation.
+
+Again - in ```updateBoard```
+
+1. Write a nested for loop that gets the row and col for every cell
+2. Count the neighbours (use the method we wrote on Monday for this) 
+2. Check if the cell is alive, apply the rules for alive cells to next
+2. If the cell is dead, apply the rules for dead cells to next
+2. Swap board and next
+
+Your game of life should look like this if you implement the rules correctly (click the image for a video):
+
+[![YouTube](http://img.youtube.com/vi/SmH2r_ChmFY/0.jpg)](https://www.youtube.com/watch?v=SmH2r_ChmFY)
+
+Some extra things you can implement you can see in the video:
+
+- Increase size and change the size of the screen and see what effect this has on the simulation 
+- Press space to pause and resume the simulation
+- Press 1 to randomise the board again
+- Press 2 to clear the board
+- Press 3 to draw a cross shape and see how it evolves
+- Drag the mouse across the window to set cells at the mouse position to be alive.
+
+Some extra things you can implement that are not in the video
+
+- Draw a glider at the mouse position. This is starting pattern that will evolve a pattern that walks across the screen
+- Draw a Gosper Gun at the mouse position. This is a starting pattern that will spawn creatures indefinitely
+
+You can read more about these starting patterns and others in [this wikipedia article](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life) and see examples in this video:
+
+[![YouTube](http://img.youtube.com/vi/HMYh4jKdtNU/0.jpg)](https://www.youtube.com/watch?v=HMYh4jKdtNU)
+
+If you want to learn more about cellular automata check out: 
+
+- [The Nature of Code](https://natureofcode.com/)
+- [A New Kind of Science](https://writings.stephenwolfram.com/2017/05/a-new-kind-of-science-a-15-year-view/)
+
+## Lecture
+- [Epic Conways Game of Life](https://www.youtube.com/watch?v=C2vgICfQawE)
+- [3D Game of Life](https://www.youtube.com/watch?v=dQJ5aEsP6Fs)
+- [John Conway talks about the game of life](https://www.youtube.com/watch?v=FdMzngWchDk)
+- [Video of the class](https://web.microsoftstream.com/video/d621064f-86c0-4f76-8a12-b5b9ab4cfa18)
+- [The Dream of Life](https://www.youtube.com/watch?v=wU0PYcCsL6o)
+
+There is a bug in the code we wrote in the class:
+
+The bounds checking on the arrays we wrote in the class is:
+
+```
+if (row > 0 && row < size -1 && col > 0 && col < size -1)
+```
+
+And it should be
+
+```
+if (row >= 0 && row < size -1 && col >= 0 && col < size -1)
+        
+```
+
+Thanks to Luke O Shea Scanlan for pointing this out!
+
+I pushed the corrected code to the repository
+
+# Week 4 - Arrays
+
+- [Tutorial Video 1](https://web.microsoftstream.com/video/0733d852-294b-4e45-b6e8-253ffba434d1?list=studio)
+- [Tutorial Video 2](https://web.microsoftstream.com/video/7991059b-bc69-4f04-9521-bc4832eb3432?list=studio)
+
+## Lab 
+### Learning Outcomes
+- Practice iterating over arrays
+- Practice computational thinking
+
+Check out this video of the assignment I wrote in GWBasic for the statistics module in first year WMT in Kevin St in 1990 (click the image for video):
+
+[![YouTube](http://img.youtube.com/vi/p3Vui6q_wPw/0.jpg)](https://www.youtube.com/watch?v=p3Vui6q_wPw)
+
+And here is the [source code](https://github.com/skooter500/StatsAssignment) in case you are interested!
+
+Inspired by the video, see if you can write code to generate the following graphs of the rainfall data. Start with the file Arrays.java. You will find these *much easier* if you use the [map function](https://processing.org/reference/map_.html) we learned in Monday's class. 
+
+When you are doing these, make sure your code works even if you change the size of the drawing window or change the values in the array.
+
+- A bar chart:
+
+  ![Sketch](images/p37.png)
+
+  Start by drawing the axis, then draw the ticks and print the text, then draw the bars. You can use ```textAlign(CENTER, CENTER)``` to align the text
+  Use the HSB color space to assign different colors to each bar
+
+- A trend line:
+
+	![Sketch](images/p38.png)
+
+  This one is a bit trickier because you have to calculate the start xy and end xy for each line. Your for loop for drawing the trend lines can start at 1 instead of 0 and then you can get the previous value for the start of each line by taking rainfall[i - 1].
+
+- A pie chart 
+
+	![Sketch](images/p39.png)
+
+	You can use the the [arc function](https://processing.org/reference/arc_.html) to draw arcs and sin & cos to calculate the x and y coordinates to print the text. This one is the most challenging. Remember that a pie chart shows the proportion of each data point in the sum of all the data, so you will have to calculate the sum of all the rain fall and figure out how much each month is relative to the sum. It's best to draw the segments first and then draw the labels. Your map function might look something like this:
+
+	```Java
+	float angle = map(rainfall[i], 0, sum, 0, TWO_PI);
+	```
+
+Don't forget to update your forks of the repository from my master branch and create a new branch for your work today!!
+
+## Lecture
+- [Video of the class](https://web.microsoftstream.com/video/7617735a-c42f-49c3-942f-a85b106b78d1)
+- [map](https://processing.org/reference/map_.html)
+- Check out Arrays.java
+- [Arrays in Java reference](https://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.html)
+
 # Week 3 - Git, the if statement and loops in Java
 
-# Tutorial 
+## Tutorial 
 - [Video of the tutorial going through the lab solution](https://web.microsoftstream.com/video/3dd5eda0-e34a-4e05-b442-990a0327cc45)
 
-# Lecture 
+## Lecture 
 - [Read the git manual](https://git-scm.com/docs/user-manual.html)
 - The if statement
 - While loops

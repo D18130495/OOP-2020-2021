@@ -45,7 +45,7 @@ public class Audio1 extends PApplet {
         {
             float c = map(i, 0, ab.size(), 0, 255);
             stroke(c, 255, 255);
-            println(lerpedBuffer[i]);
+            //println(lerpedBuffer[i]);
             lerpedBuffer[i] = lerp(lerpedBuffer[i], ab.get(i), 0.1f);
             line(i, halfHeight - lerpedBuffer[i] * halfHeight * 4, halfHeight + lerpedBuffer[i] * halfHeight * 4, i);
             sum = sum + abs(ab.get(i));

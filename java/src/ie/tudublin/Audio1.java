@@ -17,10 +17,12 @@ public class Audio1 extends PApplet {
 
     public void settings() {
         size(512, 512);
+        //fullScreen(P3D, SPAN);
     }
 
     float y = 200;
     float lerpedY = y;
+    int which = 0;
 
     public void setup() {
         minim = new Minim(this);
@@ -33,6 +35,20 @@ public class Audio1 extends PApplet {
         lerpedBuffer = new float[width];
     }
 
+    public void keyPressed() {
+        if(keyCode >= '0' && keyCode <= '5') {
+            which = keyCode - '0';
+        }
+        if(keyCode == ' ') {
+            if(ap.isPlaying()) {
+                ap.pause();
+            } else {
+                //ap.rewind();
+                ap.play();
+            }
+        }
+    }
+
     float lerpedAverage = 0;
 
     public void draw() {
@@ -41,15 +57,97 @@ public class Audio1 extends PApplet {
         float halfHeight = height / 2;
         float average = 0;
         float sum = 0;
-        for (int i = 0; i < ab.size(); i++) {
-            float c = map(i, 0, ab.size(), 0, 255);
-            stroke(c, 255, 255);
-            //println(lerpedBuffer[i]);
-            lerpedBuffer[i] = lerp(lerpedBuffer[i], ab.get(i), 0.1f);
-            line(i, halfHeight - lerpedBuffer[i] * halfHeight * 4, halfHeight + lerpedBuffer[i] * halfHeight * 4, i);
-            sum = sum + abs(ab.get(i));
-        }
+        float lastX = width / 2, lastY = height / 2;
 
+        switch (which)
+        {
+            case 0:
+            {
+                for (int i = 0; i < ab.size(); i++) {
+                    float c = map(i, 0, ab.size(), 0, 255);
+                    stroke(c, 255, 255);
+                    //println(lerpedBuffer[i]);
+                    lerpedBuffer[i] = lerp(lerpedBuffer[i], ab.get(i), 0.1f);
+                    line(i, halfHeight - lerpedBuffer[i] * halfHeight * 4, halfHeight + lerpedBuffer[i] * halfHeight * 4, i);
+                }
+                break;
+            }
+            case 1:
+            {
+                for (int i = 0; i < ab.size(); i++) {
+                    float c = map(i, 0, ab.size(), 0, 255);
+                    stroke(c, 255, 255);
+                    //println(lerpedBuffer[i]);
+                    lerpedBuffer[i] = lerp(lerpedBuffer[i], ab.get(i), 0.1f);
+                    line(i, halfHeight - lerpedBuffer[i] * halfHeight * 4, i, halfHeight + lerpedBuffer[i] * halfHeight * 4);
+                }
+                break;
+            }
+            case 2:
+            {
+                for (int i = 0; i < ab.size(); i++) {
+                    float c = map(i, 0, ab.size(), 0, 255);
+                    stroke(c, 255, 255);
+                    //println(lerpedBuffer[i]);
+                    lerpedBuffer[i] = lerp(lerpedBuffer[i], ab.get(i), 0.1f);
+                    line(0, i, lerpedBuffer[i] * halfHeight * 8, i);
+                    line(i, 0, i, lerpedBuffer[i] * halfHeight * 8);
+                    line(width, i, width - (lerpedBuffer[i] * halfHeight * 8), i);
+                    line(i, height, i, height - (lerpedBuffer[i] * halfHeight * 8));
+                }
+                break;
+            }
+            case 3:
+            {
+                for (int i = 0; i < ab.size(); i++) {
+                    sum = sum + abs(ab.get(i));
+                    average = sum / (float)ab.size();
+                    float c = map(i, 0, ab.size(), 0, 255);
+                    stroke(c, 255, 255);
+                    noFill();
+                    //println(lerpedBuffer[i]);
+                    lerpedBuffer[i] = lerp(lerpedBuffer[i], average, 0.1f);
+                    ellipse(width / 2, height / 2, lerpedBuffer[i] * 2000, lerpedBuffer[i] * 2000);
+                }
+                break;
+            }
+            case 4:
+            {
+                for (int i = 0; i < ab.size(); i++) {
+                    sum = sum + abs(ab.get(i));
+                    average = sum / (float)ab.size();
+                    float c = map(i, 0, ab.size(), 0, 255);
+                    stroke(c, 255, 255);
+                    noFill();
+                    rectMode(CENTER);
+                    //println(lerpedBuffer[i]);
+                    lerpedBuffer[i] = lerp(lerpedBuffer[i], average, 0.1f);
+                    rect(width / 2, height / 2, lerpedBuffer[i] * 2000, lerpedBuffer[i] * 2000);
+                }
+                break;
+            }
+            case 5:
+            {
+                float r = 1f;
+                int numPoints = 10;
+                float thetaInc = TWO_PI / (float)numPoints;
+                strokeWeight(2);
+                for(int i = 0; i < 512; i++)
+                {
+                    float c = map(i, 0, 300, 0, 255) % 150.0f;
+                    stroke(c, 255, 255, 100);
+                    lerpedBuffer[i] = lerp(lerpedBuffer[i], ab.get(i), 0.1f);
+                    float theta = i * (thetaInc + lerpedBuffer[i]);
+                    float x = width / 2 + sin(theta) * r;
+                    float y = height / 2 - cos(theta) * r;
+                    r += 0.5f + lerpedBuffer[i];
+                    line(lastX, lastY, x, y);
+                    lastX = x;
+                    lastY = y;
+                }
+                break;
+            }
+        }
 
 //            average = sum / (float)ab.size();
 //            lerpedAverage = lerp(lerpedAverage, average, 0.1f);
